@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nari Qian | Accounting & Finance + AI Finance</title>
+  <meta name="description" content="Personal CV website for Nari Qian, BSc Accounting & Finance student at King's College London and AI Finance Intern." />
+  <link rel="canonical" href="https://athenaqian.github.io/" />
+  <link rel="preconnect" href="https://unpkg.com" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --ink: #152033;
+      --muted: #637083;
+      --line: #d9e0ea;
+      --paper: #ffffff;
+      --soft: #f5f8fb;
+      --teal: #126b73;
+      --gold: #b9852d;
+      --coral: #b95b4d;
+      --blue: #174a7c;
+      --shadow: 0 18px 45px rgba(18, 32, 51, 0.12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+      line-height: 1.55;
+    }
+
+    button, a {
+      font: inherit;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(5, 17, 30, 0.9), rgba(8, 22, 36, 0.68) 46%, rgba(8, 22, 36, 0.18) 76%),
+        linear-gradient(180deg, rgba(6, 18, 32, 0.18), rgba(6, 18, 32, 0.05) 74vh),
+        url("assets/ai-finance-hero.png") center / cover no-repeat;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px clamp(20px, 5vw, 68px);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      background: rgba(11, 22, 35, 0.72);
+      backdrop-filter: blur(18px);
+      color: #ffffff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a,
+    .tool-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 8px 11px;
+      min-height: 38px;
+      cursor: pointer;
+    }
+
+    .tool-btn.primary {
+      background: #ffffff;
+      color: var(--blue);
+      border-color: #ffffff;
+      font-weight: 700;
+    }
+
+    .tool-btn:hover,
+    .nav a:hover {
+      background: rgba(255,255,255,0.16);
+    }
+
+    .tool-btn.primary:hover {
+      background: #eef5fb;
+    }
+
+    .hero {
+      min-height: 74vh;
+      display: grid;
+      align-items: center;
+      padding: clamp(56px, 9vw, 110px) clamp(22px, 7vw, 92px) 44px;
+      color: #ffffff;
+    }
+
+    .hero-inner {
+      width: min(760px, 100%);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 999px;
+      color: #e7eef6;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      font-size: 0.92rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.9rem, 6.4vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-subtitle {
+      margin: 22px 0 0;
+      max-width: 680px;
+      font-size: clamp(1.1rem, 2.1vw, 1.55rem);
+      color: #dbe7f0;
+      line-height: 1.38;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .hero-actions a,
+    .hero-actions button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .hero-actions .solid {
+      background: #ffffff;
+      color: var(--blue);
+      font-weight: 700;
+      border-color: #ffffff;
+    }
+
+    .hero-actions .ghost {
+      color: #ffffff;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .summary-band {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      width: min(1180px, calc(100% - 44px));
+      margin: -44px auto 0;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: var(--line);
+    }
+
+    .metric {
+      padding: 18px 18px 16px;
+      background: rgba(255,255,255,0.96);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    main {
+      background: linear-gradient(180deg, #ffffff 0, var(--soft) 100%);
+      padding: 54px clamp(20px, 5vw, 68px) 80px;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(240px, 340px) 1fr;
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .section-label {
+      margin: 0;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: clamp(1.45rem, 2.25vw, 2.1rem);
+      line-height: 1.05;
+      font-weight: 800;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 760px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: minmax(180px, 260px) 1fr;
+      gap: 28px;
+      padding: 22px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(21,32,51,0.06);
+    }
+
+    .entry-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .entry-meta strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .entry h3 {
+      margin: 0 0 10px;
+      font-size: 1.22rem;
+    }
+
+    .entry ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .entry li {
+      margin: 8px 0;
+    }
+
+    .project-grid,
+    .skills-grid,
+    .next-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card,
+    .skill-card,
+    .next-card {
+      padding: 20px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(21,32,51,0.06);
+    }
+
+    .project-card i,
+    .skill-card i,
+    .next-card i {
+      width: 28px;
+      height: 28px;
+      color: var(--teal);
+    }
+
+    .project-card h3,
+    .skill-card h3,
+    .next-card h3 {
+      margin: 14px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .project-card p,
+    .skill-card p,
+    .next-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #edf6f6;
+      color: #125b61;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .tag.gold {
+      background: #fff4df;
+      color: #805311;
+    }
+
+    .tag.coral {
+      background: #fff0ed;
+      color: #8c3b30;
+    }
+
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      padding: 24px;
+      background: #142033;
+      color: #ffffff;
+      border-radius: var(--radius);
+    }
+
+    .contact-strip a,
+    .contact-strip span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: inherit;
+      text-decoration: none;
+      min-height: 34px;
+    }
+
+    [data-editable][contenteditable="true"] {
+      outline: 2px solid rgba(18,107,115,0.26);
+      outline-offset: 3px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .hero [data-editable][contenteditable="true"] {
+      background: rgba(7, 20, 34, 0.58);
+      color: #ffffff;
+      text-shadow: none;
+    }
+
+    .hero .kicker[data-editable][contenteditable="true"] {
+      background: rgba(7, 20, 34, 0.7);
+    }
+
+    .owner-only {
+      display: none !important;
+    }
+
+    .owner-mode .owner-only {
+      display: inline-flex !important;
+    }
+
+    .owner-tools {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .owner-mode.editing .editable-hint {
+      display: inline-flex;
+    }
+
+    .editable-hint {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      background: var(--teal);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-weight: 700;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      transform: translateY(16px);
+      opacity: 0;
+      pointer-events: none;
+      background: #132033;
+      color: #ffffff;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 860px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: 72vh;
+      }
+
+      .summary-band,
+      .section-head,
+      .entry,
+      .project-grid,
+      .skills-grid,
+      .next-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-band {
+        margin-top: -24px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        padding: 12px 16px;
+      }
+
+      .nav a,
+      .tool-btn {
+        padding: 8px 10px;
+      }
+
+      .hero {
+        padding: 50px 18px 36px;
+      }
+
+      main {
+        padding: 38px 18px 64px;
+      }
+
+      .entry,
+      .project-card,
+      .skill-card,
+      .next-card {
+        padding: 17px;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .hero-actions,
+      .toast {
+        display: none !important;
+      }
+
+      .site-shell {
+        background: #ffffff;
+      }
+
+      .hero {
+        min-height: auto;
+        color: var(--ink);
+        padding: 32px 42px 18px;
+      }
+
+      .hero-subtitle,
+      .kicker {
+        color: var(--muted);
+      }
+
+      .summary-band,
+      .entry,
+      .project-card,
+      .skill-card,
+      .next-card {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell" id="top">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">NQ</span>
+        <span data-editable data-key="navName">Nari Qian</span>
+        <span class="editable-hint owner-only"><i data-lucide="pencil"></i> Editing</span>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#experience"><i data-lucide="briefcase-business"></i>Experience</a>
+        <a href="#projects"><i data-lucide="network"></i>Projects</a>
+        <a href="#skills"><i data-lucide="sparkles"></i>Skills</a>
+        <span class="owner-tools" id="ownerTools"></span>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="kicker" data-editable data-key="heroKicker"><i data-lucide="graduation-cap"></i>King's College London | Accounting & Finance | AI Finance</div>
+        <h1 data-editable data-key="heroName">Nari Qian</h1>
+        <p class="hero-subtitle" data-editable data-key="heroSubtitle">BSc Accounting & Finance student at King's College London and AI Finance Intern at Lingyi Shuke Shenzhen Headquarters, supporting finance operations, business process analysis and AI-enabled workflows for financial documentation and decision-making.</p>
+        <div class="hero-actions">
+          <a class="solid" href="Nari_Qian_CV.docx"><i data-lucide="file-text"></i>Download CV</a>
+          <a class="ghost" href="mailto:15921421508@163.com"><i data-lucide="mail"></i>Contact</a>
+          <button class="ghost" type="button" onclick="window.print()"><i data-lucide="printer"></i>Print</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="summary-band" aria-label="Profile summary">
+    <div class="metric">
+      <span>University</span>
+      <strong data-editable data-key="metricUniversity">King's College London</strong>
+    </div>
+    <div class="metric">
+      <span>Degree</span>
+      <strong data-editable data-key="metricDegree">BSc Accounting & Finance</strong>
+    </div>
+    <div class="metric">
+      <span>Current Role</span>
+      <strong data-editable data-key="metricRole">AI Finance Intern</strong>
+    </div>
+    <div class="metric">
+      <span>Focus</span>
+      <strong data-editable data-key="metricFocus">AI Finance Operations</strong>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="profile">
+      <div class="section-head">
+        <p class="section-label">Profile</p>
+        <div>
+          <h2 data-editable data-key="profileTitle">Accounting, finance and applied AI in one profile.</h2>
+          <p class="lead" data-editable data-key="profileLead">I am progressing from Year 1 to Year 2 at King's College London, with internship experience in AI-enabled finance operations, financial document review, invoice checking, reimbursement workflow exposure and business process improvement. I am passionate about financial analysis, valuation, capital markets, investment and corporate finance, and intend to pursue the CFA Program to strengthen analytical, valuation and investment knowledge for a long-term career in finance.</p>
+        </div>
+      </div>
+      <div class="contact-strip">
+        <a href="mailto:15921421508@163.com"><i data-lucide="mail"></i><span data-editable data-key="email">15921421508@163.com</span></a>
+        <span><i data-lucide="badge"></i><span data-editable data-key="studentId">KCL Student ID: K24094067</span></span>
+        <span><i data-lucide="map-pin"></i><span data-editable data-key="location">London, UK / Shenzhen, China</span></span>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-head">
+        <p class="section-label">Education</p>
+        <div>
+          <h2 data-editable data-key="educationTitle">King's College London</h2>
+          <p class="lead" data-editable data-key="educationLead">BSc Accounting & Finance | 01/09/2025 - 30/06/2028 expected | Completed Year 1; incoming Year 2 student. Current academic record includes confirmed marks and pending/deferred assessments as of application submission.</p>
+        </div>
+      </div>
+      <div class="next-grid">
+        <article class="next-card">
+          <i data-lucide="bar-chart-3"></i>
+          <h3 data-editable data-key="academicCardTitle">Confirmed Year 1 marks</h3>
+          <p data-editable data-key="academicCardText">Semester 1: Organisational Behaviour - 68. Semester 2: Introduction to Programming - 74.</p>
+        </article>
+        <article class="next-card">
+          <i data-lucide="book-open-check"></i>
+          <h3 data-editable data-key="moduleCardTitle">Pending / deferred assessments</h3>
+          <p data-editable data-key="moduleCardText">Three Semester 1 modules were approved for Stage 3 deferred examinations due to surgery-related hospitalisation and have not yet been sat. Three Semester 2 module results were pending as of application submission.</p>
+        </article>
+        <article class="next-card">
+          <i data-lucide="award"></i>
+          <h3 data-editable data-key="scholarshipCardTitle">Foundation programme</h3>
+          <p data-editable data-key="scholarshipCardText">Mathematics & Business Management | 01/09/2024 - 30/06/2025 | Score: 70, A Grade.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-head">
+        <p class="section-label">Experience</p>
+        <div>
+          <h2 data-editable data-key="experienceTitle">AI Finance Intern</h2>
+          <p class="lead" data-editable data-key="experienceLead">Lingyi Shuke (零一数科), Shenzhen Headquarters, AI Finance Department | Shenzhen, China | 01/06/2026 - Present</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <article class="entry">
+          <div class="entry-meta">
+            <strong data-editable data-key="entryOneMetaTitle">Finance operations</strong>
+            <span data-editable data-key="entryOneMetaText">Business analysis and workflow automation</span>
+          </div>
+          <div>
+            <h3 data-editable data-key="entryOneTitle">Supported finance operations before building automation.</h3>
+            <ul>
+              <li data-editable data-key="entryOneBulletA">Joined the AI Finance Department to support finance operations and workflow automation across accounting and business processes.</li>
+              <li data-editable data-key="entryOneBulletB">Assisted financial document review, invoice checking and reimbursement workflow follow-up, developing a stronger understanding of finance operations, internal controls and business processes.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-meta">
+            <strong data-editable data-key="entryTwoMetaTitle">Client communication</strong>
+            <span data-editable data-key="entryTwoMetaText">Demand and sentiment monitoring</span>
+          </div>
+          <div>
+            <h3 data-editable data-key="entryTwoTitle">Improved service visibility through AI alerts.</h3>
+            <ul>
+              <li data-editable data-key="entryTwoBulletA">Co-developed a client demand and sentiment monitoring agent for delivery chat groups.</li>
+              <li data-editable data-key="entryTwoBulletB">Used tone, keyword and context signals to identify potential dissatisfaction or unmet needs and trigger private alerts to authorised stakeholders.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-meta">
+            <strong data-editable data-key="entryThreeMetaTitle">Finance documentation</strong>
+            <span data-editable data-key="entryThreeMetaText">Tender and bidding assistant</span>
+          </div>
+          <div>
+            <h3 data-editable data-key="entryThreeTitle">Applied AI agents to finance documentation and bidding materials.</h3>
+            <ul>
+              <li data-editable data-key="entryThreeBulletA">Deployed and configured OpenClaw AI agent workflows from scratch for finance documentation, client delivery, bidding documentation and recruiting operations.</li>
+              <li data-editable data-key="entryThreeBulletB">Built a tender and bidding assistant agent to identify final commercial proposals, technical proposals and quotation sheets, standardise file naming, populate multi-sheet finance templates and support exception alerts.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-meta">
+            <strong data-editable data-key="entryFourMetaTitle">HRBP and operations</strong>
+            <span data-editable data-key="entryFourMetaText">Recruiting AI and HRBP support</span>
+          </div>
+          <div>
+            <h3 data-editable data-key="entryFourTitle">Supported AI-enabled recruiting and company operations.</h3>
+            <ul>
+              <li data-editable data-key="entryFourBulletA">Tested an AI recruiting review agent connected to Boss Zhipin workflows, including resume screening, candidate-role matching and automated outreach.</li>
+              <li data-editable data-key="entryFourBulletB">Partnered with HRBP colleagues on candidate screening, hiring workflow mapping and internal talent-system bug troubleshooting.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head">
+        <p class="section-label">Project Focus</p>
+        <div>
+          <h2 data-editable data-key="projectTitle">Applied AI projects with business value.</h2>
+          <p class="lead" data-editable data-key="projectLead">The strongest part of the current profile is hands-on AI workflow work inside finance and business operations.</p>
+        </div>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <i data-lucide="files"></i>
+          <h3 data-editable data-key="projectCardOneTitle">AI finance operations</h3>
+          <p data-editable data-key="projectCardOneText">Financial document review, invoice checking, reimbursement workflow familiarity, internal-controls awareness, document classification, finance template population and anomaly flagging.</p>
+        </article>
+        <article class="project-card">
+          <i data-lucide="message-square-warning"></i>
+          <h3 data-editable data-key="projectCardTwoTitle">Stakeholder communication</h3>
+          <p data-editable data-key="projectCardTwoText">Client sentiment analysis, private alerting logic, responsible-party routing and service quality improvement.</p>
+        </article>
+        <article class="project-card">
+          <i data-lucide="users-round"></i>
+          <h3 data-editable data-key="projectCardThreeTitle">Recruiting technology</h3>
+          <p data-editable data-key="projectCardThreeText">AI resume screening, candidate-job matching, outreach automation and internal talent-system testing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-head">
+        <p class="section-label">Skills</p>
+        <div>
+          <h2 data-editable data-key="skillsTitle">A practical AI, finance and Office toolkit.</h2>
+          <p class="lead" data-editable data-key="skillsLead">Tools are grouped by how they support finance work, communication and daily execution.</p>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <i data-lucide="bot"></i>
+          <h3 data-editable data-key="skillAiTitle">AI & productivity tools</h3>
+          <p data-editable data-key="skillAiText">OpenAI Codex, Claude Code, ChatGPT, Claude, Gemini, GitHub, OpenClaw, WorkBuddy, AI agent deployment, prompt/workflow iteration, version-control collaboration and workflow testing.</p>
+          <div class="tag-cloud">
+            <span class="tag">Codex</span>
+            <span class="tag">Claude Code</span>
+            <span class="tag">ChatGPT</span>
+            <span class="tag">Claude</span>
+            <span class="tag">Gemini</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">OpenClaw</span>
+            <span class="tag">WorkBuddy</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <i data-lucide="table-2"></i>
+          <h3 data-editable data-key="skillOfficeTitle">Office & data</h3>
+          <p data-editable data-key="skillOfficeText">Advanced Microsoft Excel, PowerPoint and Word; Financial Data Analysis; Data Cleansing; Documentation Management; Quality Assurance (QA); Process Standardisation.</p>
+          <div class="tag-cloud">
+            <span class="tag gold">Excel</span>
+            <span class="tag gold">PowerPoint</span>
+            <span class="tag gold">Word</span>
+            <span class="tag gold">Financial Data Analysis</span>
+            <span class="tag gold">Data Cleansing</span>
+            <span class="tag gold">Documentation Management</span>
+            <span class="tag gold">Quality Assurance</span>
+            <span class="tag gold">Process Standardisation</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <i data-lucide="landmark"></i>
+          <h3 data-editable data-key="skillFinanceTitle">Finance & business</h3>
+          <p data-editable data-key="skillFinanceText">Financial analysis, business analysis, capital markets and valuation interest, financial documentation, invoice checking, reimbursement workflows, tender/bidding materials, commercial proposals and quotation sheets.</p>
+          <div class="tag-cloud">
+            <span class="tag coral">Financial Analysis</span>
+            <span class="tag coral">Business Analysis</span>
+            <span class="tag coral">Valuation</span>
+            <span class="tag coral">Capital Markets</span>
+            <span class="tag coral">Invoice checking</span>
+            <span class="tag coral">Reimbursement workflows</span>
+            <span class="tag coral">Bidding materials</span>
+            <span class="tag coral">Quotations</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="contact-strip">
+        <span><i data-lucide="languages"></i><span data-editable data-key="languages">Mandarin Chinese (native); English (professional academic proficiency)</span></span>
+        <span><i data-lucide="car"></i><span data-editable data-key="licence">PRC C1 Driving Licence</span></span>
+        <span><i data-lucide="sparkle"></i><span data-editable data-key="interests">CFA Program preparation; financial analysis; valuation; capital markets; investment and corporate finance</span></span>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const STORAGE_KEY = "nari-qian-resume-site-v6";
+    const OWNER_KEY = "nari-qian-resume-owner-mode";
+    const OWNER_TOKEN = "K24094067-NQ-owner-2026-7zY4mR9q";
+    const editableNodes = () => Array.from(document.querySelectorAll("[data-editable]"));
+    const toast = document.getElementById("toast");
+    const ownerTools = document.getElementById("ownerTools");
+
+    function isOwnerMode() {
+      return window.location.protocol === "file:" || localStorage.getItem(OWNER_KEY) === "true";
+    }
+
+    function unlockOwnerModeFromUrl() {
+      const url = new URL(window.location.href);
+      const token = url.searchParams.get("owner");
+      if (token !== OWNER_TOKEN) return false;
+
+      localStorage.setItem(OWNER_KEY, "true");
+      url.searchParams.delete("owner");
+      window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+      return true;
+    }
+
+    function applyOwnerMode() {
+      document.body.classList.toggle("owner-mode", isOwnerMode());
+      renderOwnerTools();
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    function getState() {
+      const state = {};
+      editableNodes().forEach((node) => {
+        state[node.dataset.key] = node.innerHTML;
+      });
+      return state;
+    }
+
+    function applyState(state) {
+      editableNodes().forEach((node) => {
+        if (state[node.dataset.key] !== undefined) {
+          node.innerHTML = state[node.dataset.key];
+        }
+      });
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function saveState() {
+      if (!isOwnerMode()) return;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(getState()));
+      showToast("Saved locally");
+    }
+
+    function loadState() {
+      if (!isOwnerMode()) return;
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      try {
+        applyState(JSON.parse(raw));
+      } catch {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+
+    function setEditing(enabled) {
+      if (enabled && !isOwnerMode()) return;
+      document.body.classList.toggle("editing", enabled);
+      editableNodes().forEach((node) => {
+        node.contentEditable = enabled ? "true" : "false";
+        node.spellcheck = true;
+      });
+      const editToggle = document.getElementById("editToggle");
+      if (editToggle) {
+        editToggle.innerHTML = enabled
+          ? '<i data-lucide="check"></i>Done'
+          : '<i data-lucide="square-pen"></i>Edit';
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function exportState() {
+      if (!isOwnerMode()) return;
+      const blob = new Blob([JSON.stringify(getState(), null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "nari-qian-resume-site-content.json";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      showToast("Content exported");
+    }
+
+    function toolButton(id, icon, label, primary = false) {
+      const button = document.createElement("button");
+      button.className = primary ? "tool-btn primary" : "tool-btn";
+      button.type = "button";
+      button.id = id;
+      button.innerHTML = `<i data-lucide="${icon}"></i>${label}`;
+      return button;
+    }
+
+    function renderOwnerTools() {
+      if (!ownerTools) return;
+      ownerTools.innerHTML = "";
+      if (!isOwnerMode()) return;
+
+      ownerTools.append(
+        toolButton("editToggle", "square-pen", "Edit", true),
+        toolButton("saveBtn", "save", "Save"),
+        toolButton("resetBtn", "rotate-ccw", "Reset"),
+        toolButton("exportBtn", "download", "Export"),
+      );
+
+      document.getElementById("editToggle").addEventListener("click", () => {
+        const enabled = !document.body.classList.contains("editing");
+        setEditing(enabled);
+        if (!enabled) saveState();
+      });
+
+      document.getElementById("saveBtn").addEventListener("click", saveState);
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        if (!isOwnerMode()) return;
+        localStorage.removeItem(STORAGE_KEY);
+        window.location.reload();
+      });
+
+      document.getElementById("exportBtn").addEventListener("click", exportState);
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "s") {
+        event.preventDefault();
+        if (isOwnerMode()) saveState();
+      }
+    });
+
+    const ownerUnlocked = unlockOwnerModeFromUrl();
+    applyOwnerMode();
+    loadState();
+    setEditing(false);
+    if (window.lucide) window.lucide.createIcons();
+    if (ownerUnlocked) showToast("Owner editing unlocked on this device");
+  </script>
+</body>
+</html>
